@@ -31,6 +31,7 @@ exports.handler = async (event, context, callback) => {
       json: true
     };
     // for a given store first check # pages
+    await timeout(4000);
     let pages = await getPageCount(options);
     console.log('page count: ' + pages);
     // loop through # pages and save products
@@ -56,10 +57,10 @@ exports.handler = async (event, context, callback) => {
       console.log('processing page ' + (j + 1));
 
       let products = await rp(options).then((result) => {
-        return result;
+        return JSON.parse(JSON.stringify(result)).body;
       });
+      console.log('products found: ' + JSON.stringify(products));
       // save to mongodb
-      console.log('products: ' + JSON.stringify(products));
       let optionsMongo = {
         method: 'POST',
         uri: 'http://localhost:3000/products',
@@ -76,6 +77,7 @@ exports.handler = async (event, context, callback) => {
         console.log('something went wrong saving to mongodb');
         return e;
       });
+      console.log('save to mongoDB results: ' + JSON.stringify(saveToMongod));
     }
   }
   console.log('finished scrape for microcenter');
