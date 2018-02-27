@@ -33,11 +33,6 @@ exports.handler = async (event, context, callback) => {
     // for a given store first check # pages
     let pages = await getPageCount(options);
     console.log('page count: ' + pages);
-    /*rp(options).then((result)=>{
-      return JSON.parse(JSON.stringify(result)).pageCount;
-    }).catch((e)=>{
-      console.log(e);
-    });*/
     // loop through # pages and save products
 
     for (let j = 0; j < pages; j++) {
@@ -78,11 +73,12 @@ exports.handler = async (event, context, callback) => {
         console.log('saving to mongodb');
         return result;
       }).catch((e) => {
+        console.log('something went wrong saving to mongodb');
         return e;
       });
-      console.log('save to mongo results: ' + saveToMongod);
     }
   }
+  console.log('finished scrape for microcenter');
 };
 
 exports.handler('e', 'e', 'e');
