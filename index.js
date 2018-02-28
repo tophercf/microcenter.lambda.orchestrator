@@ -41,7 +41,7 @@ exports.handler = async (event, context, callback) => {
 
       let options = {
         method: 'POST',
-        uri: 'http://localhost:3000/scrape',
+        uri: process.env.BASE_URL + '/scrape',
         headers: {
           'Content-Type': 'application/json; charset=utf-8'
         },
@@ -63,7 +63,7 @@ exports.handler = async (event, context, callback) => {
       // save to mongodb
       let optionsMongo = {
         method: 'POST',
-        uri: 'http://localhost:3000/products',
+        uri: process.env.BASE_URL + '/products',
         headers: {
           'Content-Type': 'application/json; charset=utf-8'
         },
