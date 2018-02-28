@@ -4,7 +4,7 @@ const u = require('uuid/v4');
 exports.handler = async (event, context, callback) => {
   const storeIds = ['041', '065'];
   const categoryId = '4294966937';
-  const baseUrl = process.env.BASE_URL;
+  const baseUrl = 'http://' + process.env.BASE_URL;
   // generate a uuid for the run
   const uuid = u();
   const timeout = ms => new Promise(res => setTimeout(res, ms));
@@ -83,4 +83,4 @@ exports.handler = async (event, context, callback) => {
   console.log('finished scrape for microcenter');
 };
 
-//exports.handler('e', 'e', 'e');
+exports.handler('e', 'e', 'e');
