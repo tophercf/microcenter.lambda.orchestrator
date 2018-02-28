@@ -20,7 +20,7 @@ exports.handler = async (event, context, callback) => {
   for (let i = 0; i < storeIds.length; i++) {
     let options = {
       method: 'POST',
-      uri: 'http://localhost:3000/category/count',
+      uri: baseUrl + '/category/count',
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       },
@@ -41,7 +41,7 @@ exports.handler = async (event, context, callback) => {
 
       let options = {
         method: 'POST',
-        uri: process.env.BASE_URL + '/scrape',
+        uri: baseUrl + '/scrape',
         headers: {
           'Content-Type': 'application/json; charset=utf-8'
         },
@@ -63,7 +63,7 @@ exports.handler = async (event, context, callback) => {
       // save to mongodb
       let optionsMongo = {
         method: 'POST',
-        uri: process.env.BASE_URL + '/products',
+        uri: baseUrl + '/products',
         headers: {
           'Content-Type': 'application/json; charset=utf-8'
         },
