@@ -83,4 +83,4 @@ exports.handler = async (event, context, callback) => {
   console.log('finished scrape for microcenter');
 };
 
-exports.handler('e', 'e', 'e');
+//exports.handler('e', 'e', 'e');
