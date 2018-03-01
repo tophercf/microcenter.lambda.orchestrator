@@ -1,7 +1,7 @@
 const rp = require('request-promise');
 const u = require('uuid/v4');
 
-exports.handler = async (event, context, callback) => {
+exports.handler = async (event, context) => {
   const storeIds = ['041', '065'];
   const categoryId = '4294966937';
   const baseUrl = 'http://' + process.env.BASE_URL;
@@ -82,5 +82,6 @@ exports.handler = async (event, context, callback) => {
   }
   console.log('finished scrape for microcenter');
 };
-
-exports.handler('e', 'e', 'e');
+console.log('starting scrape');
+exports.handler('e', 'e');
+console.log('scrape complete');
