@@ -84,4 +84,3 @@ exports.handler = async (event, context) => {
 };
 console.log('starting scrape');
 exports.handler('e', 'e');
-console.log('scrape complete');
