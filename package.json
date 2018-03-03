@@ -4,7 +4,8 @@
   "description": "lambda triggers for scraping",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel index.js -o indexBundle.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "request-promise": "^4.2.2",
     "uuid": "^3.2.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
 }
